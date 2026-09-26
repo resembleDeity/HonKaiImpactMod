@@ -1,0 +1,60 @@
+DamageClasses.ImaginaryDamageClass.DisplayName: Imaginary Damage
+Prefixes.FinalityPrefix.DisplayName: Finality
+
+Items: {
+	JudgementOfShamash: {
+		DisplayName: Judgement Of Shamash
+		Tooltip:
+			'''
+			Template of an item
+			Replacing this tooltip is duty 
+			It's snowing on Mt.Fuji
+			'''
+	}
+
+	FinalityDivineKey: {
+		DisplayName: Finality Divine Key
+		Tooltip: ""
+	}
+
+	FinalityHerrscherCore: {
+		DisplayName: Finality Herrscher Core
+		Tooltip: ""
+	}
+
+	ReasonHerrscherCore: {
+		DisplayName: Reason Herrscher Core
+		Tooltip: ""
+	}
+
+	FenghuangDown: {
+		DisplayName: Fenghuang Down
+		Tooltip: ""
+	}
+
+	Infinite: {
+		DisplayName: Infinite
+		Tooltip: ""
+	}
+
+	FireDivineKey: {
+		DisplayName: Fire Divine Key
+		Tooltip: ""
+
+		Mode: {
+			JudgmentOfShamash: Judgment of Shamash
+			CleaverOfShamash: Cleaver of Shamash
+			MightOfAnUtu: Might of An-Utu
+			ShuhadakuOfUriel: Shuhadaku of Uriel
+		}
+	}
+}
+
+Projectiles: {
+	JudgmentOfShamash.DisplayName: Judgment Of Shamash
+	JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
+	CleaverOfShamash.DisplayName: Cleaver Of Shamash
+	CleaverOfShamashHeld.DisplayName: Cleaver Of Shamash Held
+}
+
+Keybinds.DivineKey_SwitchModeKey.DisplayName: Divine Key_ Switch Mode Key

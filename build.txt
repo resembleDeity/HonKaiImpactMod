@@ -1,0 +1,3 @@
+displayName = HonKai Impact 3
+author = Kirito.F.X
+version = 0.1

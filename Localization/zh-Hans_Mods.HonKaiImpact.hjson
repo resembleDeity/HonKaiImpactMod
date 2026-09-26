@@ -1,0 +1,50 @@
+DamageClasses.ImaginaryDamageClass.DisplayName: 虚数伤害
+Prefixes.FinalityPrefix.DisplayName: 终焉
+
+Items: {
+	JudgementOfShamash: {
+		DisplayName: 天火圣裁
+		Tooltip: ""
+	}
+
+	FinalityDivineKey: {
+		DisplayName: 终焉之键
+		Tooltip: ""
+	}
+
+	FinalityHerrscherCore: {
+		DisplayName: 终焉之律者核心
+		Tooltip: ""
+	}
+
+	ReasonHerrscherCore: {
+		DisplayName: 理之律者核心
+		Tooltip: ""
+	}
+
+	FenghuangDown: {
+		DisplayName: 羽渡尘
+		Tooltip: ""
+	}
+
+	FireDivineKey: {
+		// DisplayName: Fire Divine Key
+		// Tooltip: ""
+
+		Mode: {
+			JudgmentOfShamash: 天火圣裁
+			CleaverOfShamash: 天火大剑
+			MightOfAnUtu: 劫灭
+			ShuhadakuOfUriel: 劫灭无烬
+		}
+	}
+}
+
+Projectiles: {
+	// JudgmentOfShamash.DisplayName: Judgment Of Shamash
+	// JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
+	// CleaverOfShamash.DisplayName: Cleaver Of Shamash
+	// CleaverOfShamashHeld.DisplayName: Cleaver Of Shamash Held
+}
+
+// Keybinds.DivineKey_SwitchModeKey.DisplayName: Divine Key_ Switch Mode Key
