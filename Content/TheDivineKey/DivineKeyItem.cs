@@ -115,7 +115,7 @@ namespace HonKaiImpact.Content.TheDivineKey
 			}
 		}
 
-		private const string s_ModeTooltipLine = "DivineKeyMode";
+		private const string c_ModeTooltipLine = "DivineKeyMode";
 	}
 }
 */

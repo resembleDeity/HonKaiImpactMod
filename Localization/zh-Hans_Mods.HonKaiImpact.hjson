@@ -2,11 +2,6 @@ DamageClasses.ImaginaryDamageClass.DisplayName: 虚数伤害
 Prefixes.FinalityPrefix.DisplayName: 终焉
 
 Items: {
-	JudgementOfShamash: {
-		DisplayName: 天火圣裁
-		Tooltip: ""
-	}
-
 	FinalityDivineKey: {
 		DisplayName: 终焉之键
 		Tooltip: ""
@@ -22,11 +17,6 @@ Items: {
 		Tooltip: ""
 	}
 
-	FenghuangDown: {
-		DisplayName: 羽渡尘
-		Tooltip: ""
-	}
-
 	FireDivineKey: {
 		// DisplayName: Fire Divine Key
 		// Tooltip: ""
@@ -38,13 +28,36 @@ Items: {
 			ShuhadakuOfUriel: 劫灭无烬
 		}
 	}
+
+	SentienceDivineKey: {
+		DisplayName: 意识之键
+		Tooltip: 放在背包或饰品栏时召唤护卫；护卫在场时获得羽渡尘的庇护：免死一次、最大生命值 +100%、持续回复生命
+	}
+}
+
+Buffs: {
+	FenghuangDown: {
+		DisplayName: 羽渡尘
+		Description:
+			'''
+			免死一次，触发后冷却 120 秒
+			最大生命值 +100%
+			每秒回复 20 点生命，并额外回复最大生命值上限的 10%
+			持有识之律者核心或终焉之律者核心时：冷却 60 秒、每秒回复 80 点 + 上限的 20%
+			'''
+	}
 }
 
 Projectiles: {
-	// JudgmentOfShamash.DisplayName: Judgment Of Shamash
-	// JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
 	// CleaverOfShamash.DisplayName: Cleaver Of Shamash
 	// CleaverOfShamashHeld.DisplayName: Cleaver Of Shamash Held
+	// JudgmentOfShamash.DisplayName: Judgment Of Shamash
+	// JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
+	// MightOfAnUtu.DisplayName: Might Of An Utu
+	// MightOfAnUtuHeld.DisplayName: Might Of An Utu Held
+	// ShuhadakuOfUriel.DisplayName: Shuhadaku Of Uriel
+	// ShuhadakuOfUrielhHeld.DisplayName: Shuhadaku Of Urielh Held
+	SentienceMinion.DisplayName: 意识护卫
 }
 
-// Keybinds.DivineKey_SwitchModeKey.DisplayName: Divine Key_ Switch Mode Key
+Keybinds.DivineKey_SwitchModeKey.DisplayName: 切换形态

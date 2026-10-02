@@ -2,16 +2,6 @@ DamageClasses.ImaginaryDamageClass.DisplayName: Imaginary Damage
 Prefixes.FinalityPrefix.DisplayName: Finality
 
 Items: {
-	JudgementOfShamash: {
-		DisplayName: Judgement Of Shamash
-		Tooltip:
-			'''
-			Template of an item
-			Replacing this tooltip is duty 
-			It's snowing on Mt.Fuji
-			'''
-	}
-
 	FinalityDivineKey: {
 		DisplayName: Finality Divine Key
 		Tooltip: ""
@@ -27,16 +17,6 @@ Items: {
 		Tooltip: ""
 	}
 
-	FenghuangDown: {
-		DisplayName: Fenghuang Down
-		Tooltip: ""
-	}
-
-	Infinite: {
-		DisplayName: Infinite
-		Tooltip: ""
-	}
-
 	FireDivineKey: {
 		DisplayName: Fire Divine Key
 		Tooltip: ""
@@ -48,13 +28,36 @@ Items: {
 			ShuhadakuOfUriel: Shuhadaku of Uriel
 		}
 	}
+
+	SentienceDivineKey: {
+		DisplayName: Sentience Divine Key
+		Tooltip: Summons a guardian while in your inventory or an accessory slot. While it is present you gain Fenghuang Down's protection: one blocked lethal hit, +100% max life, and life regeneration.
+	}
+}
+
+Buffs: {
+	FenghuangDown: {
+		DisplayName: Fenghuang Down
+		Description:
+			'''
+			Blocks one lethal hit (120 second cooldown)
+			+100% max life
+			Regenerates 20 HP per second plus 10% of max life per second
+			With a Herrscher of Sentience or Finality Core: 60 second cooldown, 80 HP per second plus 20% of max life per second
+			'''
+	}
 }
 
 Projectiles: {
-	JudgmentOfShamash.DisplayName: Judgment Of Shamash
-	JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
 	CleaverOfShamash.DisplayName: Cleaver Of Shamash
 	CleaverOfShamashHeld.DisplayName: Cleaver Of Shamash Held
+	JudgmentOfShamash.DisplayName: Judgment Of Shamash
+	JudgmentOfShamashHeld.DisplayName: Judgment Of Shamash Held
+	MightOfAnUtu.DisplayName: Might Of An Utu
+	MightOfAnUtuHeld.DisplayName: Might Of An Utu Held
+	ShuhadakuOfUriel.DisplayName: Shuhadaku Of Uriel
+	ShuhadakuOfUrielhHeld.DisplayName: Shuhadaku Of Urielh Held
+	SentienceMinion.DisplayName: Sentience Minion
 }
 
-Keybinds.DivineKey_SwitchModeKey.DisplayName: Divine Key_ Switch Mode Key
+Keybinds.DivineKey_SwitchModeKey.DisplayName: Divine Key Switch Mode Key

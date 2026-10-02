@@ -16,5 +16,7 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 
 			Projectile.timeLeft = 120;
 		}
+
+		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "JudgmentOfShamash";
 	}
 }

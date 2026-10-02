@@ -78,11 +78,9 @@ namespace HonKaiImpact
 
 		public override bool InstancePerEntity => true;
 
-		/// <summary>该物品是否是一把「手持武器」（由神之键的形态数据设置）。</summary>
 		public bool bHeld;
 
-		/// <summary>该物品当前形态对应的常驻手持投射物；<see cref="ProjectileID.None"/> 表示没有。</summary>
-		public int HeldProjectile;
+		public int HeldProjectile = ProjectileID.None;
 
 		/// <summary>
 		/// 该物品当前的显示名覆盖（由神之键按形态写入）。

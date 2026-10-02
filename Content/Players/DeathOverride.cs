@@ -9,12 +9,12 @@ namespace HonKaiImpact.Content.Players
 	{
 		public override bool On_Hurt(HurtContext InHurtContext)
 		{
-			return false;
+			return true;
 		}
 
 		public override bool? On_PreKill(double InDamage, int InHitDirection, bool InbPvp, ref bool RefbPlaySound, ref bool RefbGenDust, ref PlayerDeathReason RefDamageSource)
 		{
-			return false;
+			return null;
 		}
 	}
 }

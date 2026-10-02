@@ -15,7 +15,7 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 	/// <summary>
 	/// 大剑形态的挥砍动画（动画 B）：14 帧一轮，由 <see cref="FireDivineKey"/> 的 Swing 形态生成。
 	/// </summary>
-	internal class CleaverOfShamash : HeldProjectile
+	internal class MightOfAnUtu : HeldProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -172,6 +172,6 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 		public bool IsAttack2 => Projectile.frame == 6;
 		public bool IsAttack3 => Projectile.frame == 10;
 
-		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "CleaverOfShamash";
+		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "MightOfAnUtu";
 	}
 }

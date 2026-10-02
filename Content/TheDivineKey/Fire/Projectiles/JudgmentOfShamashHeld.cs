@@ -1,4 +1,4 @@
-﻿using Nameless.Content;
+using Nameless.Content;
 
 using Terraria;
 using Terraria.GameContent;
@@ -8,16 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 {
-	/// <summary>
-	/// 双枪形态常驻在手上的枪。
-	/// <para/>
-	/// 由形态数据驱动、<see cref="HKIItem.HoldItem"/> 生成，本类负责：跟随玩家与人物朝向、常驻不掉、
-	/// 切到别的形态时自我销毁。
-	/// <para/>
-	/// 与 <see cref="CleaverOfShamashHeld"/> 的区别：大剑挥砍时把绘制让给刀光投射物，
-	/// 而双枪无论待机还是开火都持续绘制自己的纹理 —— 使用中不会消失。
-	/// </summary>
-	internal class JudgmentOfShamashHeld : HeldProjectile
+	public class JudgmentOfShamashHeld : HeldProjectile
 	{
 		public override void SetDefaults()
 		{
@@ -71,9 +62,9 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 			Projectile.spriteDirection = direction;
 
 			// 贴图按朝右绘制：朝左时整体转 180°，同时靠 FlipHorizontally 防止上下颠倒（见 PreDraw）
-			Projectile.rotation = (direction > 0 ? 0f : MathHelper.Pi) + s_RotationOffset;
+			Projectile.rotation = (direction > 0 ? 0f : MathHelper.Pi) + c_RotationOffset;
 
-			Projectile.Center = PlayerOwner.MountedCenter + new Vector2(s_ForwardOffset * direction, 0f);
+			Projectile.Center = PlayerOwner.MountedCenter + new Vector2(c_ForwardOffset * direction, 0f);
 		}
 
 		/// <summary>
@@ -93,8 +84,10 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 			return false;
 		}
 
+		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "JudgmentOfShamashHeld";
+
 		// TUNING: 手枪相对玩家中心的偏移与贴图朝向，等美术定稿后按贴图微调
-		private const float s_ForwardOffset = 8f;
-		private const float s_RotationOffset = 0f;
+		private const float c_ForwardOffset = 8f;
+		private const float c_RotationOffset = 0f;
 	}
 }

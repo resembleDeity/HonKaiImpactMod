@@ -1,10 +1,8 @@
 using HonKaiImpact.Content.DamageTypes;
-using HonKaiImpact.Content.TheDivineKey.Fire.Projectiles;
 
 using Nameless;
 
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -13,53 +11,10 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using System.Collections.Generic;
-
 namespace HonKaiImpact.Content.TheDivineKey.Fire
 {
-	/// <summary>
-	/// The Divine Keys are Held Weapon
-	/// Fire Divine Key - Judgment Of Shamash is Gun
-	/// </summary>
-	public class FireDivineKey : ModItem, ITheDivineKey
+	public partial class FireDivineKey : ModItem, ITheDivineKey
 	{
-		public enum EMode
-		{
-			JudgmentOfShamash,
-			CleaverOfShamash,
-			MightOfAnUtu,
-			ShuhadakuOfUriel,
-		}
-
-		public struct ModeData
-		{
-			public int UseStyle;
-
-			public int UseTime;
-
-			public int UseAnimation;
-
-			public bool AutoReuse;
-
-			public bool Channel;
-
-			public bool NoMelee;
-
-			public bool NoUseGraphic;
-
-			public int Damage;
-
-			public float KnockBack;
-
-			public float ShootSpeed;
-
-			public SoundStyle? UseSound;
-
-			public int UseProjectile;
-
-			public int HeldProjectile;
-		}
-
 		public override void SetDefaults()
 		{
 			Item.DamageType = ImaginaryDamageClass.s_Instance;
@@ -134,8 +89,8 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 
 			Item.DamageType = ImaginaryDamageClass.s_Instance;
 
-			Item.width = s_ItemWidth;
-			Item.height = s_ItemHeight;
+			Item.width = c_ItemWidth;
+			Item.height = c_ItemHeight;
 
 			HKIItem divineKey = Item.HKI();
 			if (divineKey is not null)
@@ -151,80 +106,11 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 			}
 		}
 
+		public override string Texture => HKIConstants.FireDivineKey + "FireDivineKey";
+
 		public EMode Mode = EMode.JudgmentOfShamash;
 
-		private const int s_ItemWidth = 90;
-		private const int s_ItemHeight = 134;
-
-		private static readonly Dictionary<EMode, ModeData> s_ModeData = new()
-		{
-			[EMode.JudgmentOfShamash] = new ModeData
-			{
-				UseStyle = ItemUseStyleID.Shoot,
-				UseTime = 15,
-				UseAnimation = 15,
-				// TUNING: useTime 5 是连射意图，所以枪形态允许 autoReuse
-				AutoReuse = true,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
-				Damage = 30,
-				KnockBack = 6f,
-				ShootSpeed = 24f,
-				UseSound = SoundID.Item1,
-				UseProjectile = ModContent.ProjectileType<JudgmentOfShamash>(),
-				HeldProjectile = ModContent.ProjectileType<JudgmentOfShamashHeld>(),
-			},
-			[EMode.CleaverOfShamash] = new ModeData
-			{
-				UseStyle = ItemUseStyleID.Swing,
-				UseTime = 5,
-				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
-				Damage = 50,
-				KnockBack = 6f,
-				ShootSpeed = 24f,
-				UseSound = SoundID.Item1,
-				UseProjectile = ModContent.ProjectileType<CleaverOfShamash>(),
-				HeldProjectile = ModContent.ProjectileType<CleaverOfShamashHeld>(),
-			},
-			[EMode.MightOfAnUtu] = new ModeData
-			{
-				// TODO: 天火出鞘 —— 暂时沿用大剑的挥砍动画与手持剑，只改数值
-				UseStyle = ItemUseStyleID.Swing,
-				UseTime = 5,
-				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
-				Damage = 120,
-				KnockBack = 6f,
-				ShootSpeed = 24f,
-				UseSound = SoundID.Item1,
-				UseProjectile = ModContent.ProjectileType<CleaverOfShamash>(),
-				HeldProjectile = ModContent.ProjectileType<CleaverOfShamashHeld>(),
-			},
-			[EMode.ShuhadakuOfUriel] = new ModeData
-			{
-				// TODO: 乌列尔之审判 —— 暂时沿用大剑的挥砍动画与手持剑，只改数值
-				UseStyle = ItemUseStyleID.Swing,
-				UseTime = 5,
-				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
-				Damage = 220,
-				KnockBack = 6f,
-				ShootSpeed = 24f,
-				UseSound = SoundID.Item1,
-				UseProjectile = ModContent.ProjectileType<CleaverOfShamash>(),
-				HeldProjectile = ModContent.ProjectileType<CleaverOfShamashHeld>(),
-			},
-		};
+		private const int c_ItemWidth = 90;
+		private const int c_ItemHeight = 134;
 	}
 }

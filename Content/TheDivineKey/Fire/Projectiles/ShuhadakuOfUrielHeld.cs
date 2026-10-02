@@ -14,7 +14,7 @@ using System;
 
 namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 {
-	internal class CleaverOfShamashHeld : HeldProjectile
+	internal class ShuhadakuOfUrielhHeld : HeldProjectile
 	{
 		public override void SetDefaults()
 		{
@@ -95,12 +95,12 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 			return false;
 		}
 
-		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "CleaverOfShamashHeld";
+		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "ShuhadakuOfUrielHeld";
 
-		[AssetMount(HKIConstants.FireDivineKeyProjectiles + "CleaverOfShamashHeld")]
+		[AssetMount(HKIConstants.FireDivineKeyProjectiles + "ShuhadakuOfUrielHeld")]
 		private static Asset<Texture2D> s_HeldTexture = null;
 
-		[AssetMount(HKIConstants.FireDivineKeyProjectiles + "CleaverOfShamashUseHeld")]
+		[AssetMount(HKIConstants.FireDivineKeyProjectiles + "ShuhadakuOfUrielUseHeld")]
 		private static Asset<Texture2D> s_UseHeldTexture = null;
 	}
 }

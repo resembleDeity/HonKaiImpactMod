@@ -3,6 +3,5 @@
 bin/
 obj/
 
-
 *.sln
 *.slnx
