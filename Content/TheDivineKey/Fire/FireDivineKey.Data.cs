@@ -18,46 +18,15 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 			ShuhadakuOfUriel,
 		}
 
-		public struct ModeData
+		private static readonly Dictionary<EMode, DivineKeyModeData> s_ModeData = new()
 		{
-			public int UseStyle;
-
-			public int UseTime;
-
-			public int UseAnimation;
-
-			public bool AutoReuse;
-
-			public bool Channel;
-
-			public bool NoMelee;
-
-			public bool NoUseGraphic;
-
-			public int Damage;
-
-			public float KnockBack;
-
-			public float ShootSpeed;
-
-			public SoundStyle? UseSound;
-
-			public int UseProjectile;
-
-			public int HeldProjectile;
-		}
-
-		private static readonly Dictionary<EMode, ModeData> s_ModeData = new()
-		{
-			[EMode.JudgmentOfShamash] = new ModeData
+			[EMode.JudgmentOfShamash] = new DivineKeyModeData
 			{
 				UseStyle = ItemUseStyleID.Shoot,
 				UseTime = 15,
 				UseAnimation = 15,
 				AutoReuse = true,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
+				NoUseGraphic = false,
 				Damage = 30,
 				KnockBack = 6f,
 				ShootSpeed = 24f,
@@ -65,15 +34,11 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 				UseProjectile = ModContent.ProjectileType<JudgmentOfShamash>(),
 				HeldProjectile = ModContent.ProjectileType<JudgmentOfShamashHeld>(),
 			},
-			[EMode.CleaverOfShamash] = new ModeData
+			[EMode.CleaverOfShamash] = new DivineKeyModeData
 			{
 				UseStyle = ItemUseStyleID.Swing,
 				UseTime = 5,
 				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
 				Damage = 50,
 				KnockBack = 6f,
 				ShootSpeed = 24f,
@@ -81,15 +46,11 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 				UseProjectile = ModContent.ProjectileType<CleaverOfShamash>(),
 				HeldProjectile = ModContent.ProjectileType<CleaverOfShamashHeld>(),
 			},
-			[EMode.MightOfAnUtu] = new ModeData
+			[EMode.MightOfAnUtu] = new DivineKeyModeData
 			{
 				UseStyle = ItemUseStyleID.Swing,
 				UseTime = 5,
 				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
 				Damage = 120,
 				KnockBack = 6f,
 				ShootSpeed = 24f,
@@ -97,15 +58,11 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 				UseProjectile = ModContent.ProjectileType<MightOfAnUtu>(),
 				HeldProjectile = ModContent.ProjectileType<MightOfAnUtuHeld>(),
 			},
-			[EMode.ShuhadakuOfUriel] = new ModeData
+			[EMode.ShuhadakuOfUriel] = new DivineKeyModeData
 			{
 				UseStyle = ItemUseStyleID.Swing,
 				UseTime = 5,
 				UseAnimation = 25,
-				AutoReuse = false,
-				Channel = true,
-				NoMelee = true,
-				NoUseGraphic = true,
 				Damage = 220,
 				KnockBack = 6f,
 				ShootSpeed = 24f,

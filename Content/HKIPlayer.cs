@@ -14,14 +14,20 @@ namespace HonKaiImpact.Content
 		public override void Initialize()
 		{
 			Reset();
+			CooldownsMap = new(16);
 		}
+		public override void ResetEffects() => Reset();
+
 
 		public override void PreUpdate()
 		{
 			SnapshotCoreStatus = HerrscherCoreStatus;
 		}
 
-		public override void ResetEffects() => Reset();
+		public override void PostUpdateMiscEffects()
+		{
+			UpdateCooldowns();
+		}
 
 		public override void ModifyHurt(ref Player.HurtModifiers RefModifiers)
 		{

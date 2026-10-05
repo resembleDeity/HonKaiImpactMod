@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace HonKaiImpact
 {
-	internal static partial class Utils
+	public static partial class Utils
 	{
 		internal static void ModifyTools(this Item InItem, int InChangeValue, int InTileBoost, int InUseTime)
 		{

@@ -17,6 +17,9 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 	{
 		public override void SetDefaults()
 		{
+			Item.width = 64;
+			Item.height = 39;
+
 			Item.DamageType = ImaginaryDamageClass.s_Instance;
 
 			Item.value = Item.buyPrice(silver: 1);
@@ -72,7 +75,7 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 				Mode = Mode.NextEnum();
 			}
 
-			ModeData data = s_ModeData[Mode];
+			DivineKeyModeData data = s_ModeData[Mode];
 
 			Item.useStyle = data.UseStyle;      // ← 两种动画的分水岭
 			Item.useTime = data.UseTime;
@@ -83,17 +86,11 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 			Item.noUseGraphic = data.NoUseGraphic;
 			Item.damage = data.Damage;
 			Item.knockBack = data.KnockBack;
-			Item.shoot = data.UseProjectile;
 			Item.shootSpeed = data.ShootSpeed;
 			Item.UseSound = data.UseSound;
+			Item.shoot = data.UseProjectile;
 
-			Item.DamageType = ImaginaryDamageClass.s_Instance;
-
-			Item.width = c_ItemWidth;
-			Item.height = c_ItemHeight;
-
-			HKIItem divineKey = Item.HKI();
-			if (divineKey is not null)
+			if (Item.HKI() is HKIItem divineKey)
 			{
 				divineKey.bHeld = true;
 				divineKey.HeldProjectile = data.HeldProjectile;
@@ -106,11 +103,21 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire
 			}
 		}
 
+		/// <summary>
+		/// 枪形态手持贴图的偏移 —— 原版钩子，只对 <c>useStyle == 5</c>（非法杖）生效。
+		/// <para/>
+		/// 返回 null 用原版值。
+		/// 原版基准见 <c>Player.cs:52831</c>：<c>itemLocation.X = position.X + width * 0.5f - direction * 2f</c>；
+		/// </summary>
+		public override Vector2? HoldoutOffset()
+		{
+			return Mode == EMode.JudgmentOfShamash ? m_HoldoutOffset : null;
+		}
+
 		public override string Texture => HKIConstants.FireDivineKey + "FireDivineKey";
 
 		public EMode Mode = EMode.JudgmentOfShamash;
 
-		private const int c_ItemWidth = 90;
-		private const int c_ItemHeight = 134;
+		private Vector2 m_HoldoutOffset = new(-6.0f, 0.0f);
 	}
 }

@@ -1,11 +1,11 @@
 ﻿using HonKaiImpact.Content;
-
+using HonKaiImpact.Structures;
 using Terraria;
 using Terraria.ID;
 
 namespace HonKaiImpact
 {
-	internal static partial class Utils
+	public static partial class Utils
 	{
 		internal static HKIPlayer HKI(this Player InPlayer)
 		{

@@ -22,9 +22,9 @@ namespace Nameless.Actors
 			Id = Instances.Count;
 			Instances.Add(this);
 			IdByType[type] = Id;
-			InstanceById[Id] = new Dictionary<Type, Actor>
+			InstanceById[Id] = new()
 			{
-				{ type, this },
+				[type] = this,
 			};
 
 			try

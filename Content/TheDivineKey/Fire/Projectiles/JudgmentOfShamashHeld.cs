@@ -5,6 +5,7 @@ using Terraria.GameContent;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Nameless;
 
 namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 {
@@ -50,21 +51,15 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 			UpdateHeldTransform();
 		}
 
-		/// <summary>
-		/// 跟随人物朝向摆放 —— 只用 <see cref="Player.direction"/>（1 朝右 / -1 朝左），不读鼠标。
-		/// 这样手持武器是稳定的"握着"姿势，而不是一直指向鼠标。
-		/// </summary>
 		private void UpdateHeldTransform()
 		{
 			int direction = PlayerOwner.direction;
 
 			Projectile.direction = direction;
 			Projectile.spriteDirection = direction;
+			Projectile.scale = 0.7f;
 
-			// 贴图按朝右绘制：朝左时整体转 180°，同时靠 FlipHorizontally 防止上下颠倒（见 PreDraw）
-			Projectile.rotation = (direction > 0 ? 0f : MathHelper.Pi) + c_RotationOffset;
-
-			Projectile.Center = PlayerOwner.MountedCenter + new Vector2(c_ForwardOffset * direction, 0f);
+			Projectile.Center = PlayerOwner.GetStableCenter() + new Vector2(0.0f, 5.0f);
 		}
 
 		/// <summary>
@@ -85,9 +80,5 @@ namespace HonKaiImpact.Content.TheDivineKey.Fire.Projectiles
 		}
 
 		public override string Texture => HKIConstants.FireDivineKeyProjectiles + "JudgmentOfShamashHeld";
-
-		// TUNING: 手枪相对玩家中心的偏移与贴图朝向，等美术定稿后按贴图微调
-		private const float c_ForwardOffset = 8f;
-		private const float c_RotationOffset = 0f;
 	}
 }

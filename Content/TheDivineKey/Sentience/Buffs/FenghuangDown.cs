@@ -1,13 +1,14 @@
 using HonKaiImpact.Content.TheDivineKey.Sentience.Projectiles;
 
-using Microsoft.Xna.Framework.Graphics;
-
 using Nameless;
+
 using ReLogic.Content;
 
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+
+using Microsoft.Xna.Framework.Graphics;
 
 namespace HonKaiImpact.Content.TheDivineKey.Sentience.Buffs
 {
@@ -30,18 +31,19 @@ namespace HonKaiImpact.Content.TheDivineKey.Sentience.Buffs
 
 		public override void Update(Player InPlayer, ref int RefBuffIndex)
 		{
-			InPlayer.HKI().bFenghuangDown = true;
+			HKIPlayer hkiPlayer = InPlayer.HKI();
+			hkiPlayer.bFenghuangDown = true;
+			m_CoreBoost = hkiPlayer.SentienceCoreBoost;
+
+			InPlayer.statLifeMax2 += (int)(InPlayer.statLifeMax2 * MaxLifeBonus);
+
+			float lifePerSecond = BaseLifeRegen + InPlayer.statLifeMax2 * MaxLifeRegen;
+			InPlayer.lifeRegen += (int)(lifePerSecond * 2);
 		}
 
-		/// <summary>
-		/// 冷却中换成冷却版图标（<c>FenghuangDownCooldown</c>），就绪时用常态图标。
-		/// <para/>
-		/// 只改 <see cref="BuffDrawParams.Texture"/> 后返回 true，位置、缩放、文字都交回原版画。
-		/// <paramref name="InBuffIndex"/> 是 <see cref="Main.LocalPlayer"/> 的 buff 下标，所以这里查本机玩家即可。
-		/// </summary>
 		public override bool PreDraw(SpriteBatch InSpriteBatch, int InBuffIndex, ref BuffDrawParams RefDrawParams)
 		{
-			RefDrawParams.Texture = Main.LocalPlayer.HKI().FenghuangDownCoolingDown
+			RefDrawParams.Texture = Main.LocalPlayer.HasCooldown(Cooldowns.FenghuangDown.Name)
 				? s_CooldownTexture.Value
 				: s_Texture.Value;
 
@@ -55,5 +57,12 @@ namespace HonKaiImpact.Content.TheDivineKey.Sentience.Buffs
 
 		[AssetMount(HKIConstants.SentienceDivineKeyBuffs + "FenghuangDownCooldown")]
 		private static Asset<Texture2D> s_CooldownTexture = null;
+
+		private bool m_CoreBoost;
+
+		private float MaxLifeBonus => m_CoreBoost ? 1.0f : 0.5f;
+
+		private float BaseLifeRegen => m_CoreBoost ? 80.0f : 20.0f;
+		private float MaxLifeRegen => m_CoreBoost ? 0.2f : 0.1f;
 	}
 }

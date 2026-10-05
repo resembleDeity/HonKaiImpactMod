@@ -6,10 +6,9 @@ using Terraria.ModLoader;
 namespace HonKaiImpact.Content.TheDivineKey.Sentience.Projectiles
 {
 	/// <summary>
-	/// 意识之键召唤出来的召唤物。
+	/// 意识之键羽渡尘的羽毛。
 	/// <para/>
-	/// 由 <see cref="SentienceDivineKey"/> 在背包或饰品栏时维持：饰品每帧给它续 <c>timeLeft</c>，
-	/// 一旦停止续期它就自己消失。
+	/// 由 <see cref="SentienceDivineKey"/> 在背包或饰品栏时维持。
 	/// <para/>
 	/// <b>它不是原版的召唤物</b>：不设 <c>Projectile.minion</c> / <c>Projectile.minionSlots</c>，
 	/// 因此不占召唤栏、不会被原版「换召唤武器时清理召唤物」（<c>Player.FreeUpPetsAndMinions</c>）顶掉，
@@ -36,7 +35,7 @@ namespace HonKaiImpact.Content.TheDivineKey.Sentience.Projectiles
 		{
 			Player owner = Main.player[Projectile.owner];
 
-			FollowOwner(owner);
+			UpdateTransform(owner);
 			UpdateAttack(owner);
 		}
 
@@ -53,7 +52,7 @@ namespace HonKaiImpact.Content.TheDivineKey.Sentience.Projectiles
 		}
 
 		/// <summary>悬停在主人身后上方；掉队太远直接拉回来，免得卡地形。</summary>
-		private void FollowOwner(Player InOwner)
+		private void UpdateTransform(Player InOwner)
 		{
 			Vector2 target = InOwner.Center + new Vector2(-InOwner.direction * c_IdleOffsetX, c_IdleOffsetY);
 			Vector2 toTarget = target - Projectile.Center;
